@@ -26,6 +26,10 @@ echo "20. Auto Install Centos 6 (KVM)";
 echo "21. Auto Install Debian 6";
 echo "===============================";
 echo "22. Update menu";
+echo "++++++++++++++++++";
+echo "++ HASIL UPDATE ++";
+echo "++++++++++++++++++";
+echo "23. Limit user login";
 read -p "Pilihan Menu: " a;
 
 case $a in
@@ -134,6 +138,76 @@ chmod +x perbarui
 perbarui
 cd
 menu
+exit 0
+;;
+23)
+read -p "Maksimal Login ( 1 atau 2 ):" c;
+case $c in
+1)
+crontab -l > mycron
+echo "* * * * * limit 1" >> mycron
+echo "* * * * * sleep 5; limit 1" >> mycron
+echo "* * * * * sleep 10; limit 1" >> mycron
+echo "* * * * * sleep 15; limit 1" >> mycron
+echo "* * * * * sleep 20; limit 1" >> mycron
+echo "* * * * * sleep 25; limit 1" >> mycron
+echo "* * * * * sleep 30; limit 1" >> mycron
+echo "* * * * * sleep 35; limit 1" >> mycron
+echo "* * * * * sleep 40; limit 1" >> mycron
+echo "* * * * * sleep 45; limit 1" >> mycron
+echo "* * * * * sleep 50; limit 1" >> mycron
+echo "* * * * * sleep 55; limit 1" >> mycron
+crontab mycron
+rm mycron
+( crontab -l | grep -v -F "* * * * * limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 5; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 10; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 15; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 20; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 25; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 30; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 35; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 40; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 45; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 50; limit 2" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 55; limit 2" ) | crontab -
+service cron restart
+clear
+exit 0
+;;
+2)
+crontab -l > mycron
+echo "* * * * * limit 2" >> mycron
+echo "* * * * * sleep 5; limit 2" >> mycron
+echo "* * * * * sleep 10; limit 2" >> mycron
+echo "* * * * * sleep 15; limit 2" >> mycron
+echo "* * * * * sleep 20; limit 2" >> mycron
+echo "* * * * * sleep 25; limit 2" >> mycron
+echo "* * * * * sleep 30; limit 2" >> mycron
+echo "* * * * * sleep 35; limit 2" >> mycron
+echo "* * * * * sleep 40; limit 2" >> mycron
+echo "* * * * * sleep 45; limit 2" >> mycron
+echo "* * * * * sleep 50; limit 2" >> mycron
+echo "* * * * * sleep 55; limit 2" >> mycron
+crontab mycron
+rm mycron
+( crontab -l | grep -v -F "* * * * * limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 5; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 10; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 15; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 20; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 25; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 30; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 35; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 40; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 45; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 50; limit 1" ) | crontab -
+( crontab -l | grep -v -F "* * * * * sleep 55; limit 1" ) | crontab -
+service cron restart
+clear
+exit 0
+;;
+esac
 exit 0
 ;;
 *)
