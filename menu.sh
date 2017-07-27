@@ -218,6 +218,7 @@ wget http://www.drakonesia.com/backup.tar
 tar -xvf backup.tar
 chmod 777 application/config/database.php
 apt-get install php5-ssh2 php5-mysql -y
+rm backup.tar
 clear
 cd
 echo "Akses OCS Panel pada browser kamu";
