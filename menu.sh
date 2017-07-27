@@ -19,6 +19,13 @@ echo "14. Update Server";
 echo "15. Upgrade Server";
 echo "16. Restart service pilihan";
 echo "17. Restart server";
+echo "++++++++++++++++++++++++++++++++";
+echo "18. Auto Install Debian 7";
+echo "19. Auto Install Centos 6 (openvz)";
+echo "20. Auto Install Centos 6 (KVM)";
+echo "21. Auto Install Debian 6";
+echo "===============================";
+echo "22. Update menu";
 read -p "Pilihan Menu: " a;
 
 case $a in
@@ -87,22 +94,47 @@ exit 0
 ;;
 16)
 read -p "Masukkan nama service: " b;
-service '$b' restart
+service $b restart
 exit 0
 ;;
 17)
 reboot
 exit 0
 ;;
-2)
-hapus
+18)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/debian7.sh
+bash debian7.sh
 exit 0
 ;;
-2)
-hapus
+19)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/centos6.sh
+bash centos6.sh
 exit 0
 ;;
-
+20)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/centos6-kvm.sh
+bash centos6-kvm.sh
+exit 0
+;;
+21)
+cd
+wget https://raw.github.com/arieonline/autoscript/master/debian6.sh
+bash debian6.sh
+exit 0
+;;
+22)
+cd /bin
+wget -O menu https://github.com/arachi006/vps/raw/master/menu.sh
+chmod +x menu
+wget -O perbarui https://github.com/arachi006/vps/raw/master/daftar-menu.sh
+chmod +x perbarui
+perbarui
+menu
+exit 0
+;;
 *)
 echo "Tidak ada yang dipilih -_-";
 echo "kanvret lah kau";
