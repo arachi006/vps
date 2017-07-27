@@ -214,12 +214,12 @@ exit 0
 ;;
 24)
 cd /home/vps/public_html
-wget http://www.drakonesia.com/backup.zip
+wget http://www.drakonesia.com/OCS.zip
 apt-get install unzip -y
-unzip backup.zip
+unzip OCS.zip
 chmod 777 application/config/database.php
 apt-get install php5-ssh2 php5-mysql -y
-rm backup.zip
+rm OCS.zip
 rm index.html
 clear
 cd
