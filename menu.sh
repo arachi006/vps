@@ -218,7 +218,7 @@ wget http://www.drakonesia.com/OCS.zip
 apt-get install unzip -y
 unzip OCS.zip
 chmod 777 application/config/database.php
-apt-get install php5-ssh2 php5-mysql mysql-server -y
+apt-get install php5-ssh2 php5-mysql php5-mysqlnd mysql-server -y
 rm OCS.zip
 rm index.html
 clear
