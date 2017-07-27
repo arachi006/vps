@@ -30,6 +30,7 @@ echo "++++++++++++++++++";
 echo "++ HASIL UPDATE ++";
 echo "++++++++++++++++++";
 echo "23. Limit user login";
+echo "24. Install OCS Panel edited by Arachi";
 read -p "Pilihan Menu: " a;
 
 case $a in
@@ -137,6 +138,7 @@ wget -O perbarui https://github.com/arachi006/vps/raw/master/daftar-menu.sh
 chmod +x perbarui
 perbarui
 cd
+echo "Pembaruhan script telah sukses. Script by mv21.me";
 menu
 exit 0
 ;;
@@ -208,6 +210,17 @@ clear
 exit 0
 ;;
 esac
+exit 0
+;;
+24)
+cd /home/vps/public_html
+wget http://www.drakonesia.com/backup.tar
+tar -xvf backup.tar
+chmod 777 application/config/database.php
+apt-get install php5-ssh2 php5-mysql -y
+clear
+cd
+echo "Akses OCS Panel pada browser kamu";
 exit 0
 ;;
 *)
