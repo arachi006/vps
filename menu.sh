@@ -219,7 +219,8 @@ apt-get install unzip -y
 unzip backup.zip
 chmod 777 application/config/database.php
 apt-get install php5-ssh2 php5-mysql -y
-rm backup.tar
+rm backup.zip
+rm index.html
 clear
 cd
 echo "Akses OCS Panel pada browser kamu";
